@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Маржан 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #f8e8ff 50%, #fff0e6 100%);
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        .floating-petals {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .petal {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #ff9ec7, #ffb3d9);
+            border-radius: 50% 0 50% 0;
+            animation: float 15s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 2s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d63384;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(214, 51, 132, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #8e44ad;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 80px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(214, 51, 132, 0.1);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(214, 51, 132, 0.15);
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #6c5ce7;
+            font-style: italic;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .gallery-item:hover::before {
+            left: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(214, 51, 132, 0.2);
+        }
+
+        .gallery-item .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .gallery-item h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #d63384;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-item p {
+            color: #8e44ad;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .interactive-section {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .rizz-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+            margin: 10px;
+        }
+
+        .rizz-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.4);
+            background: linear-gradient(45deg, #ff5582, #b33a5c);
+        }
+
+        .rizz-display {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 15px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rizz-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #d63384;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .rizz-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(186, 85, 211, 0.3));
+            border-radius: 25px;
+            padding: 4rem 2rem;
+        }
+
+        .contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            color: #8e44ad;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .heart {
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-card {
+                padding: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-petals" id="petals"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Привет, Маржан <span class="sparkle">🌸</span></h1>
+                <p>Твоя улыбка делает этот мир светлее <span class="heart">💖</span></p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2>О тебе</h2>
+            <div class="about-card">
+                <p>Ты как редкий бриллиант, Маржан — каждый взгляд на тебя бесценен ✨</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section">
+            <h2>Моменты с тобой</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-rizz="С тобой даже водка кажется сладкой 🥂">
+                    <span class="emoji">🌹</span>
+                    <h3>Красота</h3>
+                    <p>Каждый день с тобой как праздник</p>
+                </div>
+                <div class="gallery-item" data-rizz="Ты превращаешь обычные дни в сказку ✨">
+                    <span class="emoji">⭐</span>
+                    <h3>Магия</h3>
+                    <p>Твоё присутствие делает всё особенным</p>
+                </div>
+                <div class="gallery-item" data-rizz="С тобой хочется танцевать под дождём 💃">
+                    <span class="emoji">💫</span>
+                    <h3>Радость</h3>
+                    <p>Твой смех — самая прекрасная мелодия</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section -->
+        <section class="section">
+            <div class="interactive-section">
+                <h2>Для тебя, Маржан</h2>
+                <button class="rizz-button" onclick="showRizz()">Получить комплимент 💕</button>
+                <button class="rizz-button" onclick="showPoetry()">Стихи для тебя 📝</button>
+                <div class="rizz-display">
+                    <div class="rizz-text" id="rizzText">Нажми кнопку, чтобы увидеть что-то особенное...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="contact">
+                <h2>Спасибо</h2>
+                <p>Спасибо за то, что существуешь, Маржан <span class="heart">💖</span><br>
+                Ты делаешь этот мир намного прекраснее</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Create floating petals
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.animationDelay = Math.random() * 15 + 's';
+            petal.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.getElementById('petals').appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 25000);
+        }
+
+        // Create petals periodically
+        setInterval(createPetal, 2000);
+
+        // Gallery hover effects
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const rizzText = this.getAttribute('data-rizz');
+                const rizzDisplay = document.getElementById('rizzText');
+                rizzDisplay.textContent = rizzText;
+                rizzDisplay.classList.add('show');
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const rizzDisplay = document.getElementById('rizzText');
+                rizzDisplay.classList.remove('show');
+                setTimeout(() => {
+                    rizzDisplay.textContent = 'Наведи на карточку, чтобы увидеть комплимент...';
+                }, 500);
+            });
+        });
+
+        // Rizz button functionality
+        const rizzLines = [
+            "Маржан, ты делаешь всё вокруг прекраснее 🌸",
+            "С тобой хочется писать стихи и забывать о времени ⏰",
+            "Ты как солнце — освещаешь всё вокруг ☀️",
+            "Даже звёзды завидуют твоему сиянию ⭐",
+            "С тобой каждый день как первый день весны 🌱",
+            "Ты превращаешь серые будни в яркие праздники 🎉"
+        ];
+
+        const poetryLines = [
+            "В твоих глазах я вижу целый мир,<br>Где нет печали, боли и тревог...<br>Маржан, ты мой прекрасный ориентир 💫",
+            "Как нежен твой голос, как сладок смех,<br>Ты словно мелодия в сердце моём...<br>С тобой я забываю обо всём 🎵",
+            "Ты как цветок в саду моей души,<br>Благоухаешь нежностью и светом...<br>Маржан, ты делаешь мир лучше 🌺"
+        ];
+
+        function showRizz() {
+            const randomRizz = rizzLines[Math.floor(Math.random() * rizzLines.length)];
+            displayText(randomRizz);
+        }
+
+        function showPoetry() {
+            const randomPoetry = poetryLines[Math.floor(Math.random() * poetryLines.length)];
+            displayText(randomPoetry);
+        }
+
+        function displayText(text) {
+            const rizzDisplay = document.getElementById('rizzText');
+            rizzDisplay.classList.remove('show');
+            
+            setTimeout(() => {
+                rizzDisplay.innerHTML = text;
+                rizzDisplay.classList.add('show');
+            }, 300);
+        }
+
+        // Smooth scrolling for better experience
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974ed036e128d06b',t:'MTc1NjE2Mzk1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
